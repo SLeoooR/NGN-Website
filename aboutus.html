@@ -27,8 +27,10 @@
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="index.html"><img src="pics\ngnlogoo.png" width="38" height="38" />NGN.NET Enterprises</a>
+        <nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"
+                ><img src="pics\ngnlogoo.png" width="30" height="30" class="d-inline-block align-top" />NGN.NET Enterprises</a
+            >
             <button
                 class="navbar-toggler"
                 type="button"
@@ -309,11 +311,8 @@
         </div>
 
         <footer class="text-light">
-            <div class="footer-copyright text-center py-2 bg-primary">Copyright © Scott Leo C. Reganit</div>
+            <div class="footer-copyright text-center py-2 bg-dark">Copyright © Scott Leo C. Reganit</div>
         </footer>
-
-        <!-- JS, Popper.js, and jQuery -->
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
         <script
@@ -326,5 +325,9 @@
             integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
             crossorigin="anonymous"
         ></script>
+
+        <script>
+            $(".carousel").carousel("cycle");
+        </script>
     </body>
 </html>

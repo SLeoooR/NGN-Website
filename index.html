@@ -26,8 +26,10 @@
         <link rel="icon" type="image/x-icon" href="pics/ngnlogoo.png" />
     </head>
     <body>
-        <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="index.html"><img src="pics\ngnlogoo.png" width="38" height="38" />NGN.NET Enterprises</a>
+        <nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"
+                ><img src="pics\ngnlogoo.png" width="30" height="30" class="d-inline-block align-top" />NGN.NET Enterprises</a
+            >
             <button
                 class="navbar-toggler"
                 type="button"
@@ -92,7 +94,7 @@
                 <hr class="my-4" />
                 <p>Had quality projects undertaken around Bicol region, and will continue to do so.</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="aboutus.html" role="button">Learn more</a>
+                    <a class="btn btn-lg btn-dark" href="aboutus.html" role="button">Learn more</a>
                 </p>
             </div>
 
@@ -141,7 +143,7 @@
         </div>
 
         <footer class="text-light">
-            <div class="footer-copyright text-center py-2 bg-primary">Copyright © Scott Leo C. Reganit</div>
+            <div class="footer-copyright text-center py-2 bg-dark">Copyright © Scott Leo C. Reganit</div>
         </footer>
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -157,9 +159,7 @@
         ></script>
 
         <script>
-            $(".carousel").carousel({
-                interval: 2000,
-            });
+            $(".carousel").carousel("cycle");
         </script>
     </body>
 </html>

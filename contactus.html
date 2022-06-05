@@ -30,8 +30,10 @@
         <link rel="icon" type="image/x-icon" href="pics/ngnlogoo.png" />
     </head>
     <body>
-        <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="index.html"><img src="pics\ngnlogoo.png" width="38" height="38" />NGN.NET Enterprises</a>
+        <nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"
+                ><img src="pics\ngnlogoo.png" width="30" height="30" class="d-inline-block align-top" />NGN.NET Enterprises</a
+            >
             <button
                 class="navbar-toggler"
                 type="button"
@@ -90,25 +92,18 @@
                     <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-4 py-5 mx-auto" style="background-color: rgba(233, 236, 239, 0.25)">
                         <h1 class="display-5">Tell Us</h1>
                         <hr />
-                        <form>
-                            <div class="row">
-                                <div class="col pr-1">
-                                    <input id="field1" class="mb-1 form-control" type="text" required name="Name" placeholder="Name *" value="" />
-                                    <input id="field2" class="mb-1 form-control" type="text" required name="Email" placeholder="Email *" value="" />
-                                    <input id="field3" class="mb-1 form-control" type="text" name="Subject" placeholder="Subject" value="" />
-                                </div>
-                                <div class="col pl-1 d-flex align-items-stretch">
-                                    <textarea
-                                        id="field4"
-                                        class="mb-1 form-control"
-                                        style="resize: none"
-                                        name="Message"
-                                        placeholder="Message"
-                                        value=""
-                                    ></textarea>
-                                </div>
-                            </div>
-                            <button type="button" class="btn-sm btn-primary">Send</button>
+                        <form id="tellUsForm" method="post" onsubmit="sendEmail()">
+                            <input id="subjectField" class="mb-1 form-control" type="text" required name="Subject" placeholder="Subject *" value="" />
+                            <textarea
+                                id="bodyField"
+                                class="mb-1 form-control"
+                                style="resize: none"
+                                required
+                                name="Message"
+                                placeholder="Message *"
+                                value=""
+                            ></textarea>
+                            <button type="submit" class="btn-sm btn-dark">Send</button>
                         </form>
                     </div>
                 </div>
@@ -116,7 +111,7 @@
         </div>
 
         <footer class="text-light">
-            <div class="footer-copyright text-center py-2 bg-primary">Copyright © Scott Leo C. Reganit</div>
+            <div class="footer-copyright text-center py-2 bg-dark">Copyright © Scott Leo C. Reganit</div>
         </footer>
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -132,6 +127,7 @@
         ></script>
 
         <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script>
             var map = new ol.Map({
                 target: "map",
@@ -143,6 +139,9 @@
                 view: new ol.View({
                     center: ol.proj.fromLonLat([123.197815, 13.621391]),
                     zoom: 18,
+                }),
+                interactions: ol.interaction.defaults({
+                    mouseWheelZoom: false,
                 }),
             });
 
@@ -190,6 +189,15 @@
 
             content.innerHTML = "We are located here!";
             overlay.setPosition(ol.proj.fromLonLat([123.197815, 13.621391]));
+
+            function sendEmail() {
+                var subject = document.getElementById("subjectField").value;
+                var body = document.getElementById("bodyField").value;
+
+                window.open(`mailto:lreganit@yahoo.com?subject=${subject}&body=${body}`);
+
+                document.getElementById("tellUsForm").reset();
+            }
         </script>
     </body>
 </html>
